@@ -119,7 +119,6 @@
             data: {
                 deep: true,
                 handler() {
-                    console.log(this.numbersCountForShowProp);
                     let current = this.data.current_page,
                         last = this.data.last_page,
                         delta = parseInt(this.numbersCountForShowProp),
@@ -153,7 +152,6 @@
         },
         methods: {
             handler(page) {
-                console.log(page);
                 this.changePage(page);
             },
             isCurrent(page) {
