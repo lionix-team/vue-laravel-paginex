@@ -1,0 +1,33 @@
+{
+  "name": "vue-laravel-paginex",
+  "version": "1.0.0",
+  "description": "Laravel Pagination with VueJS (customizable)",
+  "main": "src/Pagination.vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lionix-team/vue-laravel-paginex.git"
+  },
+  "keywords": [
+    "laravel",
+    "pagination",
+    "vuejs",
+    "vue",
+    "paginate",
+    "lionix"
+  ],
+  "authors": [
+    {
+      "name": "Lionix Team",
+      "email": "packages@lionix-team.com"
+    },
+    {
+      "name": "Garik Harutyunyan",
+      "email": "garik.harutyunyan99@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lionix-team/vue-laravel-paginex/issues"
+  },
+  "homepage": "https://github.com/lionix-team/vue-laravel-paginex#readme"
+}
