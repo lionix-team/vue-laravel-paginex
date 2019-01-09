@@ -1,9 +1,9 @@
-#Laravel Pagination with VueJS (customizable)
+# Laravel Pagination with VueJS (customizable)
 
 `vue-laravel-paginex` will provide you ability to easily
 create pagination from Laravel Pagination object.
 
-##Installation
+## Installation
 
 `npm i vue-laravel-paginex`
 
@@ -11,7 +11,7 @@ or
 
 `yarn add vue-laravel-paginex`
 
-##Usage
+## Usage
 
 First import the Pagination component inside 
 your Vue component.
@@ -25,14 +25,14 @@ Vue.component('Pagination', Pagination)
 
 Then you'll be able to use pagination component.
 
-####Example:
+#### Example:
 
 ```html
 <Pagination :changePage="getData" :data="data"/>
 ```
 `:changePage` prop will run the function 
 ( in our case is `getData()`) when new page selected.
-#####getData() function example with vue-resource.
+##### getData() function example with vue-resource.
 ```javascript
 methods: {
     get(page) {
@@ -43,7 +43,7 @@ methods: {
 }
 ```
 `this.data` object must be Laravel Pagination object.
-Example:
+##### Example:
 ```javascript
 {
     current_page: 1
@@ -61,7 +61,7 @@ Example:
 }
 ```
 
-##Customizations
+## Customizations
 
 You can customize your pagination styles by overwriting default values.
 Available props for component:
@@ -78,12 +78,12 @@ numberClass         | page-link
 numbersCountForShow | 2
 activeClass         | active
 
-#####Example:
+##### Example:
 `<Pagination :changePage="getData" :data="data" :containerClass="pagination-container"/>`
 
 You can use `:options` prop by passing options object into it.
 
-#####Example:
+##### Example:
 You have to define here only props which you want to overwrite.
 ```javascript
 options:{
