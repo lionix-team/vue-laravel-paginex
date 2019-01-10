@@ -1,6 +1,6 @@
 {
   "name": "vue-laravel-paginex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Laravel Pagination with VueJS (customizable)",
   "main": "src/Pagination.vue",
   "repository": {
