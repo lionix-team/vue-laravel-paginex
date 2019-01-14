@@ -57,7 +57,8 @@
             changePage: {
                 required:true
             },
-            options: {}
+            options: {},
+            requestParameters:{}
         },
         computed: {
             containerClassProp: function () {
@@ -152,6 +153,11 @@
         },
         methods: {
             handler(page) {
+                let parameters = {};
+                if (this.requestParameters) {
+                    parameters=this.requestParameters();
+                }
+                parameters.page = page;
                 this.changePage(page);
             },
             isCurrent(page) {

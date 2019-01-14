@@ -1,6 +1,6 @@
 # Laravel Pagination with VueJS (customizable)
-![](https://img.shields.io/npm/dt/vue-laravel-paginex.svg)
-![](https://img.shields.io/npm/v/vue-laravel-paginex.svg)
+[![](https://img.shields.io/npm/dt/vue-laravel-paginex.svg)](https://www.npmjs.com/package/vue-laravel-paginex)
+[![](https://img.shields.io/npm/v/vue-laravel-paginex.svg)](https://www.npmjs.com/package/vue-laravel-paginex)
 
 `vue-laravel-paginex` will provide you ability to easily
 create pagination from Laravel Pagination object.
