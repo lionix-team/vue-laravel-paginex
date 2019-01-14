@@ -55,10 +55,10 @@
                 default: 2
             },
             changePage: {
-                required:true
+                required: true
             },
             options: {},
-            requestParameters:{}
+            requestParams: {}
         },
         computed: {
             containerClassProp: function () {
@@ -154,11 +154,11 @@
         methods: {
             handler(page) {
                 let parameters = {};
-                if (this.requestParameters) {
-                    parameters=this.requestParameters();
+                if (this.requestParams) {
+                    parameters = this.requestParams();
                 }
                 parameters.page = page;
-                this.changePage(page);
+                this.changePage(parameters);
             },
             isCurrent(page) {
                 if (this.currentPage === page) {
