@@ -37,8 +37,8 @@ Then you'll be able to use pagination component.
 ##### getData() function example with vue-resource.
 ```javascript
 methods: {
-    get(page) {
-        this.$http.get('getDataEndpoint?page=' + page).then(response => {
+    getData(data) {
+        this.$http.get('getDataEndpoint?page=' + data.page).then(response => {
             this.data = response.data
         })
     }
@@ -128,6 +128,17 @@ options:{
 }
 ```
 `<Pagination :changePage="getData" :data="data" :options="options"/>`
+
+##### Example:
+You can set your own request params for request
+```javascript
+params () {
+    return {
+       keyword:this.keyword
+    }
+}
+```
+`<Pagination :changePage="getData" :data="data" :options="options" :requestParams="params"/>`
 
 ## Credits
 
