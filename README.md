@@ -44,7 +44,7 @@ methods: {
     }
 }
 ```
-`this.data` object must be Laravel Pagination object.
+`this.data` object must be Laravel default or API Resource Pagination object.
 ##### Example:
 ```javascript
 {
@@ -60,6 +60,38 @@ methods: {
     prev_page_url: null
     to: 20
     total: 200
+}
+```
+or
+```javascript
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Eladio Schroeder Sr.",
+            "email": "therese28@example.com",
+        },
+        {
+            "id": 2,
+            "name": "Liliana Mayert",
+            "email": "evandervort@example.com",
+        }
+    ],
+    "links":{
+        "first": "http://example.com/pagination?page=1",
+        "last": "http://example.com/pagination?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta":{
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "path": "http://example.com/pagination",
+        "per_page": 15,
+        "to": 10,
+        "total": 10
+    }
 }
 ```
 
