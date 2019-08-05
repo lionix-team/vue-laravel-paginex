@@ -126,8 +126,8 @@
         },
         methods: {
             init() {
-                let current = this.data.current_page ? this.data.current_page : this.data.meta.current_page,
-                    last = this.data.last_page ? this.data.last_page : this.data.meta.last_page,
+                let current = this.data.hasOwnProperty('current_page') ? this.data.current_page : this.data.meta.current_page,
+                    last = this.data.hasOwnProperty('last_page') ? this.data.last_page : this.data.meta.last_page,
                     delta = parseInt(this.numbersCountForShowProp),
                     left = current - delta,
                     right = current + delta + 1,
@@ -150,10 +150,16 @@
                     rangeWithDots.push(i);
                     l = i;
                 }
+
+                for (let i = 1; i <= last; i++) {
+                    if ((i === 1 || i === last) || (i >= left && i < right)) {
+                        range.push(i);
+                    }
+                }
                 this.numbers = rangeWithDots;
-                this.currentPage = this.data.current_page ? this.data.current_page : this.data.meta.current_page;
-                this.nextPageUrl = this.data.next_page_url ? this.data.next_page_url : this.data.links.next;
-                this.prevPageUrl = this.data.prev_page_url ? this.data.prev_page_url : this.data.links.prev;
+                this.currentPage = this.data.hasOwnProperty('current_page') ? this.data.current_page : this.data.meta.current_page;
+                this.nextPageUrl = this.data.hasOwnProperty('next_page_url') ? this.data.next_page_url : this.data.links.next;
+                this.prevPageUrl = this.data.hasOwnProperty('prev_page_url') ? this.data.prev_page_url : this.data.links.prev;
             },
             handler(page) {
                 let parameters = {};
