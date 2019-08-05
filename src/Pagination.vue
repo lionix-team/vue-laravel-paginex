@@ -15,14 +15,6 @@
 
 <script>
     export default {
-        data() {
-            return {
-                prevPageUrl: null,
-                nextPageUrl: null,
-                currentPage: 1,
-                numbers: []
-            }
-        },
         props: {
             data: {
                 required: true
@@ -120,38 +112,49 @@
             data: {
                 deep: true,
                 handler() {
-                    let current = this.data.current_page,
-                        last = this.data.last_page,
-                        delta = parseInt(this.numbersCountForShowProp),
-                        left = current - delta,
-                        right = current + delta + 1,
-                        range = [],
-                        rangeWithDots = [],
-                        l;
-                    for (let i = 1; i <= last; i++) {
-                        if (i == 1 || i == last || i >= left && i < right) {
-                            range.push(i);
-                        }
-                    }
-                    for (let i of range) {
-                        if (l) {
-                            if (i - l === 2) {
-                                rangeWithDots.push(l + 1);
-                            } else if (i - l !== 1) {
-                                rangeWithDots.push('...');
-                            }
-                        }
-                        rangeWithDots.push(i);
-                        l = i;
-                    }
-                    this.numbers = rangeWithDots;
-                    this.currentPage = this.data.current_page;
-                    this.nextPageUrl = this.data.next_page_url;
-                    this.prevPageUrl = this.data.prev_page_url;
+                    this.init();
                 }
             },
         },
+        data() {
+            return {
+                prevPageUrl: null,
+                nextPageUrl: null,
+                currentPage: 1,
+                numbers: []
+            }
+        },
         methods: {
+            init() {
+                let current = this.data.current_page ? this.data.current_page : this.data.meta.current_page,
+                    last = this.data.last_page ? this.data.last_page : this.data.meta.last_page,
+                    delta = parseInt(this.numbersCountForShowProp),
+                    left = current - delta,
+                    right = current + delta + 1,
+                    range = [],
+                    rangeWithDots = [],
+                    l;
+                for (let i = 1; i <= last; i++) {
+                    if (i == 1 || i == last || i >= left && i < right) {
+                        range.push(i);
+                    }
+                }
+                for (let i of range) {
+                    if (l) {
+                        if (i - l === 2) {
+                            rangeWithDots.push(l + 1);
+                        } else if (i - l !== 1) {
+                            rangeWithDots.push('...');
+                        }
+                    }
+                    rangeWithDots.push(i);
+                    l = i;
+                }
+                this.numbers = rangeWithDots;
+                this.currentPage = this.data.current_page ? this.data.current_page : this.data.meta.current_page;
+                this.nextPageUrl = this.data.next_page_url ? this.data.next_page_url : this.data.links.next;
+                this.prevPageUrl = this.data.prev_page_url ? this.data.prev_page_url : this.data.links.prev;
+            },
             handler(page) {
                 let parameters = {};
                 if (this.requestParams) {
@@ -166,6 +169,9 @@
                 }
                 return false;
             }
+        },
+        mounted() {
+            this.init();
         }
     }
 </script>
