@@ -103,10 +103,13 @@ Available props for component:
 Prop Name           | Default Value
 -------------       | -------------
 containerClass      | pagination
+buttonIcons         | false
 prevButtonClass     | page-item
 prevButtonText      | Prev
+prevButtonIcon      | fa fa-chevron-left
 nextButtonClass     | page-item
 nextButtonText      | Next
+nextButtonIcon      | fa fa-chevron-right
 numberButtonClass   | page-item
 numberClass         | page-link
 numbersCountForShow | 2
