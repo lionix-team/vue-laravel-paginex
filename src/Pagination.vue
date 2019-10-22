@@ -2,13 +2,19 @@
     <div>
         <ul :class="containerClassProp">
             <li @click="handler(currentPage-1)" :class="prevButtonClassProp" v-if="prevPageUrl">
-                <a href="javascript:void(0)" :class="numberClassProp">{{prevButtonTextProp}}</a></li>
+                <a href="javascript:void(0)" :class="numberClassProp">
+                    <i :class="prevButtonIconProp" v-if="buttonIconsProp"></i>
+                    {{prevButtonTextProp}}
+                </a>
+            </li>
             <li v-for="(number,i) in (numbers)" @click="handler(number==='...' ? i+1 : number)"
                 :class="{[numberButtonClassProp]:true,[activeClassProp]:isCurrent(number)}">
                 <a href="javascript:void(0)" :class="numberClassProp">{{number}}</a>
             </li>
             <li @click="handler(currentPage+1)" :class="nextButtonClassProp" v-if="nextPageUrl">
-                <a href="javascript:void(0)" :class="numberClassProp">{{nextButtonTextProp}}</a></li>
+                <i :class="nextButtonIconProp" v-if="buttonIconsProp"></i>
+                <a href="javascript:void(0)" :class="numberClassProp">{{nextButtonTextProp}}</a>
+            </li>
         </ul>
     </div>
 </template>
@@ -22,17 +28,26 @@
             containerClass: {
                 default: 'pagination'
             },
+            buttonIcons: {
+                default: false
+            },
             prevButtonClass: {
                 default: 'page-item'
             },
             prevButtonText: {
                 default: 'Prev'
             },
+            prevButtonIcon: {
+                default: 'fa fa-chevron-left'
+            },
             nextButtonClass: {
                 default: 'page-item'
             },
             nextButtonText: {
                 default: 'Next'
+            },
+            nextButtonIcon: {
+                default: 'fa fa-chevron-right'
             },
             numberButtonClass: {
                 default: 'page-item'
@@ -59,6 +74,12 @@
                 }
                 return this.containerClass;
             },
+            buttonIconsProp: function () {
+                if (this.options && this.options.buttonIcons) {
+                    return this.options.buttonIcons;
+                }
+                return this.buttonIcons;
+            },
             prevButtonClassProp: function () {
                 if (this.options && this.options.prevButtonClass) {
                     return this.options.prevButtonClass;
@@ -71,6 +92,12 @@
                 }
                 return this.prevButtonText;
             },
+            prevButtonIconProp: function () {
+                if (this.options && this.options.prevButtonIcon) {
+                    return this.options.prevButtonIcon;
+                }
+                return this.prevButtonIcon;
+            },
             nextButtonClassProp: function () {
                 if (this.options && this.options.nextButtonClass) {
                     return this.options.nextButtonClass;
@@ -82,6 +109,12 @@
                     return this.options.nextButtonText;
                 }
                 return this.nextButtonText;
+            },
+            nextButtonIconProp: function () {
+                if (this.options && this.options.nextButtonIcon) {
+                    return this.options.nextButtonIcon;
+                }
+                return this.nextButtonIcon;
             },
             numberButtonClassProp: function () {
                 if (this.options && this.options.numberButtonClass) {
